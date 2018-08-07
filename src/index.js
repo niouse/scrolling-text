@@ -1,12 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import ScrollingText from './ScrollingText';
 
-const texts = [
-    "text 1",
-    "text 2",
-    "text 3"
+const texts1 = [
+  "J'aime bien",
+  "J'aime pas",
+  "Je déteste",
+]
+const texts2 = [
+  "js",
+  "c++",
+  "java",
 ]
 
-ReactDOM.render(<App texts={texts}/>, document.getElementById('root'));
+const texts3 = [
+  "enrichissant",
+  "fatiguant",
+  "excitant"
+]
+
+const options1 = {
+  height:74,
+  fontSize:64,
+  containerStyles:{
+    top: "16px",
+  }
+}
+
+const Text1 = <ScrollingText texts={texts1} {...options1} />
+const Text2 = <ScrollingText  texts={texts2} {...options1} vy={0.2}/>
+const Text3 = <ScrollingText  texts={texts3} {...options1} vy={0.2} deltaT={0} containerStyles={{color:"red"}}/>
+
+
+const Exemple1 = () => <div>
+  <div style={{fontSize : "64px"}}>  {Text1} ça coder en {Text2} c'est très {Text3} </div>
+</div>
+
+ReactDOM.render(<Exemple1 />, document.getElementById('root'));
 
